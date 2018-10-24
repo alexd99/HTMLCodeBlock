@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import CodeBlock from "./components/CodeBlock";
 import CssCodeDisplay from "./components/CssCodeDisplay";
+import HtmlCodeDisplay from "./components/HtmlCodeDisplay";
 import BlockOptions from "./components/BlockOptions";
 import HighlightGlobalStyles from "./components/HighlightGlobalStyles";
 
@@ -12,6 +13,20 @@ const ParentDiv = styled.div`
 
 class App extends React.Component {
   state = {
+    code: `    
+    <!DOCTYPE html>
+    <title>Title</title>
+    
+    <style>body {width: 500px;}</style>
+    
+    <script type="application/javascript">
+      function $init() {return true;}
+    </script>
+    
+    <body>
+      <p checked class="title" id='title'>Title</p>
+      <!-- here goes the rest of the page -->
+    </body>`,
     options: {
       addition: "#ffb81c",
       attr: "#ffb81c",
@@ -60,28 +75,15 @@ class App extends React.Component {
     }
   };
   render() {
-    const { options } = this.state;
+    const { code, options } = this.state;
     return (
       <ParentDiv>
-        <h1>Custom HTML Code Block</h1>
+        <h1>Custom Code Block</h1>
         <HighlightGlobalStyles options={options} />
-        <CodeBlock>{`
-       <!DOCTYPE html>
-       <title>Title</title>
-       
-       <style>body {width: 500px;}</style>
-       
-       <script type="application/javascript">
-         function $init() {return true;}
-       </script>
-       
-       <body>
-         <p checked class="title" id='title'>Title</p>
-         <!-- here goes the rest of the page -->
-       </body>
-        `}</CodeBlock>
+        <CodeBlock>{code}</CodeBlock>
 
         <CssCodeDisplay options={options} />
+        <HtmlCodeDisplay code={code} />
         <BlockOptions data={options} />
       </ParentDiv>
     );
