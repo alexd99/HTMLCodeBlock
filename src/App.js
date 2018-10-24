@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import CodeBlock from "./components/CodeBlock";
-import CodeDisplay from "./components/CodeDisplay";
+import CssCodeDisplay from "./components/CssCodeDisplay";
 import BlockOptions from "./components/BlockOptions";
 import HighlightGlobalStyles from "./components/HighlightGlobalStyles";
 
@@ -80,8 +80,8 @@ class App extends React.Component {
          <!-- here goes the rest of the page -->
        </body>
         `}</CodeBlock>
-        <br />
-        <CodeDisplay options={options} />
+
+        <CssCodeDisplay options={options} />
         <BlockOptions data={options} />
       </ParentDiv>
     );

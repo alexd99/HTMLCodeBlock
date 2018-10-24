@@ -1,9 +1,11 @@
 import React from "react";
 import CodeBlock from "./CodeBlock";
 
-const CodeDisplay = ({ options }) => (
-  <CodeBlock>
-    {`
+const CssCodeDisplay = ({ options }) => (
+  <React.Fragment>
+    <h2>CSS CODE</h2>
+    <CodeBlock style={{ height: "500px" }}>
+      {`
         .hljs-code-block{
             border-radius: ${options["border-radius"]};
             display: block;
@@ -137,7 +139,8 @@ const CodeDisplay = ({ options }) => (
             color: ${options["variable"]};
         }
         `}
-  </CodeBlock>
+    </CodeBlock>
+  </React.Fragment>
 );
 
-export default CodeDisplay;
+export default CssCodeDisplay;
