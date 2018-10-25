@@ -5,6 +5,7 @@ import CssCodeDisplay from "./components/CssCodeDisplay";
 import HtmlCodeDisplay from "./components/HtmlCodeDisplay";
 import BlockOptions from "./components/BlockOptions";
 import HighlightGlobalStyles from "./components/HighlightGlobalStyles";
+import ViewSwitcher from "./components/ViewSwitcher";
 
 const ParentDiv = styled.div`
   width: 50%;
@@ -13,6 +14,7 @@ const ParentDiv = styled.div`
 
 class App extends React.Component {
   state = {
+    view: "output",
     code: `    
     <!DOCTYPE html>
     <title>Title</title>
@@ -74,19 +76,38 @@ class App extends React.Component {
       variable: "#ffb81c"
     }
   };
-  render() {
-    const { code, options } = this.state;
-    return (
-      <ParentDiv>
-        <h1>Custom Code Block</h1>
-        <HighlightGlobalStyles options={options} />
-        <CodeBlock>{code}</CodeBlock>
 
-        <CssCodeDisplay options={options} />
-        <HtmlCodeDisplay code={code} />
-        <BlockOptions data={options} />
-      </ParentDiv>
-    );
+  changeView = view => {
+    this.setState({
+      view: view
+    });
+  };
+
+  render() {
+    const { view, code, options } = this.state;
+    switch (this.state.view) {
+      case "output":
+        return (
+          <ParentDiv>
+            <h1>Custom Code Block</h1>
+            <ViewSwitcher view={view} changeView={this.changeView} />
+            <HighlightGlobalStyles options={options} />
+            <CodeBlock>{code}</CodeBlock>
+            <CssCodeDisplay options={options} />
+            <HtmlCodeDisplay code={code} />
+          </ParentDiv>
+        );
+      case "input":
+        return (
+          <React.Fragment>
+            <h1>Custom Code Block</h1>
+            <ViewSwitcher view={view} changeView={this.changeView} />
+            <BlockOptions />
+          </React.Fragment>
+        );
+      default:
+        return <h1>Custom Code Block</h1>;
+    }
   }
 }
 
