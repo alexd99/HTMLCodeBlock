@@ -14,7 +14,7 @@ const ParentDiv = styled.div`
 
 class App extends React.Component {
   state = {
-    view: "output",
+    view: "input",
     code: `    
     <!DOCTYPE html>
     <title>Title</title>
@@ -34,7 +34,6 @@ class App extends React.Component {
       attr: "#ffb81c",
       attribute: "#ffb81c",
       background: "#3a3d40",
-      "border-radius": "2px",
       built_in: "#ffb81c",
       "builtin-name": "#ffb81c",
       bullet: "#7de3f4",
@@ -44,7 +43,7 @@ class App extends React.Component {
       deletion: "#bdc0c0",
       doctag: "#bdc0c0",
       emphasis: "#a9adad",
-      formula: "a9adad",
+      formula: "#a9adad",
       function: "#ffb81c",
       keyword: "#ffb81c",
       link: "#7de3f4",
@@ -83,12 +82,32 @@ class App extends React.Component {
     });
   };
 
+  optionChange = (event, option) => {
+    const value = event.target.value;
+
+    this.setState(prevstate => ({
+      options: {
+        ...prevstate.options,
+        [option]: value
+      }
+    }));
+  };
+
+  codeChange = event => {
+    const value = event.target.value;
+
+    this.setState({
+      code: value
+    });
+  };
+
   render() {
     const { view, code, options } = this.state;
     switch (this.state.view) {
       case "output":
         return (
           <ParentDiv>
+            <HighlightGlobalStyles options={options} />
             <h1>Custom Code Block</h1>
             <ViewSwitcher view={view} changeView={this.changeView} />
             <HighlightGlobalStyles options={options} />
@@ -100,9 +119,15 @@ class App extends React.Component {
       case "input":
         return (
           <React.Fragment>
+            <HighlightGlobalStyles options={options} />
             <h1>Custom Code Block</h1>
             <ViewSwitcher view={view} changeView={this.changeView} />
-            <BlockOptions />
+            <BlockOptions
+              options={options}
+              optionChange={this.optionChange}
+              code={code}
+              codeChange={this.codeChange}
+            />
           </React.Fragment>
         );
       default:
