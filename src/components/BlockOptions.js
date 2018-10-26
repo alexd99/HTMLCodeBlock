@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { ChromePicker } from "react-color";
 import CodeBlock from "./CodeBlock";
+import { themesArray } from "./themes";
 
 const FlexDiv = styled.div`
   display: flex;
@@ -69,7 +70,6 @@ const ColorsDiv = styled.div`
     margin-top: 50px;
   }
 `;
-
 const BlockOptions = props => {
   let allOptions = [];
   for (let options in props.options) {
@@ -84,6 +84,14 @@ const BlockOptions = props => {
   return (
     <FlexDiv>
       <ColorsDiv>
+        <h2>Themes</h2>
+        <select onChange={props.themeChange} value={props.themeName}>
+          {themesArray.map(theme => (
+            <option key={theme} value={theme}>
+              {theme}
+            </option>
+          ))}
+        </select>
         <h2>Colors</h2>
         <InputDiv>
           {allOptions.map(option => (
