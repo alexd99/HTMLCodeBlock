@@ -27,6 +27,9 @@ const ViewSwitcher = ({ view, changeView }) => (
     <Link active={view === "input"} onClick={() => changeView("input")}>
       INPUT
     </Link>
+    <Link active={view === "key"} onClick={() => changeView("key")}>
+      KEY
+    </Link>
   </Views>
 );
 

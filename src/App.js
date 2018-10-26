@@ -5,6 +5,7 @@ import CssCodeDisplay from "./components/CssCodeDisplay";
 import HtmlCodeDisplay from "./components/HtmlCodeDisplay";
 import BlockOptions from "./components/BlockOptions";
 import HighlightGlobalStyles from "./components/HighlightGlobalStyles";
+import Key from "./components/Key";
 import ViewSwitcher from "./components/ViewSwitcher";
 
 const ParentDiv = styled.div`
@@ -128,6 +129,14 @@ class App extends React.Component {
               code={code}
               codeChange={this.codeChange}
             />
+          </React.Fragment>
+        );
+      case "key":
+        return (
+          <React.Fragment>
+            <h1>Custom Code Block</h1>
+            <ViewSwitcher view={view} changeView={this.changeView} />
+            <Key />
           </React.Fragment>
         );
       default:
