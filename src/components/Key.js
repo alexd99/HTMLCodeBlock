@@ -17,123 +17,123 @@ const Key = () => (
   <React.Fragment>
     <h2>KEY</h2>
     <KeyTable>
-      <tbody valign="top">
-        <tr class="row-odd">
-          <td colspan="2">
+      <tbody>
+        <tr>
+          <td colSpan="2">
             <strong>General-purpose</strong>
           </td>
         </tr>
-        <tr class="row-even">
+        <tr>
           <td>keyword</td>
           <td>keyword in a regular Algol-style language</td>
         </tr>
-        <tr class="row-odd">
+        <tr>
           <td>built_in</td>
           <td>built-in or library object (constant, class, function)</td>
         </tr>
-        <tr class="row-even">
+        <tr>
           <td>type</td>
           <td>
             user-defined type in a language with first-class syntactically
             significant types, like Haskell
           </td>
         </tr>
-        <tr class="row-odd">
+        <tr>
           <td>literal</td>
           <td>
             special identifier for a built-in value (“true”, “false”, “null”)
           </td>
         </tr>
-        <tr class="row-even">
+        <tr>
           <td>number</td>
           <td>number, including units and modifiers, if any.</td>
         </tr>
-        <tr class="row-odd">
+        <tr>
           <td>regexp</td>
           <td>literal regular expression</td>
         </tr>
-        <tr class="row-even">
+        <tr>
           <td>string</td>
           <td>literal string, character</td>
         </tr>
-        <tr class="row-odd">
+        <tr>
           <td>subst</td>
           <td>parsed section inside a literal string</td>
         </tr>
-        <tr class="row-even">
+        <tr>
           <td>symbol</td>
           <td>symbolic constant, interned string, goto label</td>
         </tr>
-        <tr class="row-odd">
+        <tr>
           <td>class</td>
           <td>
             class or class-level declaration (interfaces, traits, modules, etc)
           </td>
         </tr>
-        <tr class="row-even">
+        <tr>
           <td>function</td>
           <td>function or method declaration</td>
         </tr>
-        <tr class="row-odd">
+        <tr>
           <td>title</td>
           <td>name of a class or a function at the place of declaration</td>
         </tr>
-        <tr class="row-even">
+        <tr>
           <td>params</td>
           <td>
             block of function arguments (parameters) at the place of declaration
           </td>
         </tr>
-        <tr class="row-odd">
-          <td colspan="2">
+        <tr>
+          <td colSpan="2">
             <strong>Meta</strong>
           </td>
         </tr>
-        <tr class="row-even">
+        <tr>
           <td>comment</td>
           <td>comment</td>
         </tr>
-        <tr class="row-odd">
+        <tr>
           <td>doctag</td>
           <td>documentation markup within comments</td>
         </tr>
-        <tr class="row-even">
+        <tr>
           <td>meta</td>
           <td>
             flags, modifiers, annotations, processing instructions, preprocessor
             directive, etc
           </td>
         </tr>
-        <tr class="row-odd">
+        <tr>
           <td>meta-keyword</td>
           <td>keyword or built-in within meta construct</td>
         </tr>
-        <tr class="row-even">
+        <tr>
           <td>meta-string</td>
           <td>string within meta construct</td>
         </tr>
-        <tr class="row-odd">
-          <td colspan="2">
+        <tr>
+          <td colSpan="2">
             <strong>Tags, attributes, configs</strong>
           </td>
         </tr>
-        <tr class="row-even">
+        <tr>
           <td>section</td>
           <td>heading of a section in a config file, heading in text markup</td>
         </tr>
-        <tr class="row-odd">
+        <tr>
           <td>tag</td>
           <td>XML/HTML tag</td>
         </tr>
-        <tr class="row-even">
+        <tr>
           <td>name</td>
           <td>name of an XML tag, the first word in an s-expression</td>
         </tr>
-        <tr class="row-odd">
+        <tr>
           <td>builtin-name</td>
           <td>s-expression name from the language standard library</td>
         </tr>
-        <tr class="row-even">
+        <tr>
           <td>attr</td>
           <td>
             name of an attribute with no language defined semantics (keys in
@@ -141,101 +141,101 @@ const Key = () => (
             highlighted object, like XML tag
           </td>
         </tr>
-        <tr class="row-odd">
+        <tr>
           <td>attribute</td>
           <td>
             name of an attribute followed by a structured value part, like CSS
             properties
           </td>
         </tr>
-        <tr class="row-even">
+        <tr>
           <td>variable</td>
           <td>
             variable in a config or a template file, environment var expansion
             in a script
           </td>
         </tr>
-        <tr class="row-odd">
-          <td colspan="2">
+        <tr>
+          <td colSpan="2">
             <strong>Markup</strong>
           </td>
         </tr>
-        <tr class="row-even">
+        <tr>
           <td>bullet</td>
           <td>list item bullet in text markup</td>
         </tr>
-        <tr class="row-odd">
+        <tr>
           <td>code</td>
           <td>code block in text markup</td>
         </tr>
-        <tr class="row-even">
+        <tr>
           <td>emphasis</td>
           <td>emphasis in text markup</td>
         </tr>
-        <tr class="row-odd">
+        <tr>
           <td>strong</td>
           <td>strong emphasis in text markup</td>
         </tr>
-        <tr class="row-even">
+        <tr>
           <td>formula</td>
           <td>mathematical formula in text markup</td>
         </tr>
-        <tr class="row-odd">
+        <tr>
           <td>link</td>
           <td>hyperlink in text markup</td>
         </tr>
-        <tr class="row-even">
+        <tr>
           <td>quote</td>
           <td>quotation in text markup</td>
         </tr>
-        <tr class="row-odd">
-          <td colspan="2">
+        <tr>
+          <td colSpan="2">
             <strong>CSS</strong>
           </td>
         </tr>
-        <tr class="row-even">
+        <tr>
           <td>selector-tag</td>
           <td>tag selector in CSS</td>
         </tr>
-        <tr class="row-odd">
+        <tr>
           <td>selector-id</td>
           <td>#id selector in CSS</td>
         </tr>
-        <tr class="row-even">
+        <tr>
           <td>selector-class</td>
           <td>.class selector in CSS</td>
         </tr>
-        <tr class="row-odd">
+        <tr>
           <td>selector-attr</td>
           <td>[attr] selector in CSS</td>
         </tr>
-        <tr class="row-even">
+        <tr>
           <td>selector-pseudo</td>
           <td>:pseudo selector in CSS</td>
         </tr>
-        <tr class="row-odd">
-          <td colspan="2">
+        <tr>
+          <td colSpan="2">
             <strong>Templates</strong>
           </td>
         </tr>
-        <tr class="row-even">
+        <tr>
           <td>template-tag</td>
           <td>tag of a template language</td>
         </tr>
-        <tr class="row-odd">
+        <tr>
           <td>template-variable</td>
           <td>variable in a template language</td>
         </tr>
-        <tr class="row-even">
-          <td colspan="2">
+        <tr>
+          <td colSpan="2">
             <strong>diff</strong>
           </td>
         </tr>
-        <tr class="row-odd">
+        <tr>
           <td>addition</td>
           <td>added or changed line in a diff</td>
         </tr>
-        <tr class="row-even">
+        <tr>
           <td>deletion</td>
           <td>deleted line in a diff</td>
         </tr>
