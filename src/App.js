@@ -11,6 +11,9 @@ import ViewSwitcher from "./components/ViewSwitcher";
 const ParentDiv = styled.div`
   width: 50%;
   margin: auto;
+  @media (max-width: 1100px) {
+    width: 90%;
+  }
 `;
 
 class App extends React.Component {
