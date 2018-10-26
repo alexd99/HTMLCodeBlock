@@ -11,6 +11,9 @@ const HighlightGlobalStyles = createGlobalStyle`
     margin: 0;
     white-space: pre;
     text-align: left;
+    @media (max-width: 600px) {
+        padding: 0;
+    }
 }
 
 .hljs-addition{
