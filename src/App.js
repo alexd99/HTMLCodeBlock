@@ -15,7 +15,7 @@ const ParentDiv = styled.div`
 
 class App extends React.Component {
   state = {
-    view: "input",
+    view: "output",
     code: `    
     <!DOCTYPE html>
     <title>Title</title>
