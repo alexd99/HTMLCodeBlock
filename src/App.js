@@ -83,8 +83,8 @@ class App extends React.Component {
     });
   };
 
-  optionChange = (event, option) => {
-    const value = event.target.value;
+  optionChange = (color, event, option) => {
+    const value = color.hex;
 
     this.setState(prevstate => ({
       options: {

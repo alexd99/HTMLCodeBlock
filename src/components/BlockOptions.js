@@ -1,21 +1,17 @@
 import React from "react";
 import styled from "styled-components";
+import { ChromePicker } from "react-color";
 import CodeBlock from "./CodeBlock";
 
 const InputDiv = styled.div`
   display: flex;
   flex-wrap: wrap;
-  width: 95%
+  justify-content: center;
+  width: 95%;
   margin: auto;
 `;
-const InputWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  margin: 20px;
-
-  & > * {
-    margin: 5px;
-  }
+const ColorPicker = styled.div`
+  margin: 10px;
 `;
 const CodeInput = styled.textarea`
   height: 500px;
@@ -46,15 +42,16 @@ const BlockOptions = props => {
       <h2>Colors</h2>
       <InputDiv>
         {allOptions.map(option => (
-          <InputWrapper key={option.name}>
-            <label htmlFor={option.name}>{option.name}: </label>
-            <input
+          <ColorPicker key={option.name}>
+            <p>{option.name}: </p>
+            <ChromePicker
+              color={option.value}
               id={option.name}
-              type="color"
-              value={option.value}
-              onChange={event => props.optionChange(event, option.name)}
+              onChange={(color, event) =>
+                props.optionChange(color, event, option.name)
+              }
             />
-          </InputWrapper>
+          </ColorPicker>
         ))}
       </InputDiv>
       <h2>Code</h2>
