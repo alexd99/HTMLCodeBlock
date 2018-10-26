@@ -15,6 +15,23 @@ const HighlightGlobalStyles = createGlobalStyle`
         padding: 0;
     }
 }
+.hljs-comment,
+.hljs-quote,
+.hljs-emphasis {
+    font-style: italic
+}
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-subst,
+.hljs-title,
+.hljs-section,
+.hljs-selector-id,
+.hljs-type,
+.hljs-class .hljs-title
+.hljs-meta,
+.hljs-strong  {
+    font-weight: bold
+}
 
 .hljs-addition{
     color: ${props => props.options["addition"]};
