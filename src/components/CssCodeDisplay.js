@@ -47,7 +47,7 @@ class CssCodeDisplay extends React.Component {
         display: block;
         overflow-x: auto;
         padding: 2rem 1rem;
-        background: ${this.props.options["background"]};;
+        background: ${this.props.options["background"]};
         color: ${this.props.options["text-color"]};
         margin: 0;
         white-space: pre;

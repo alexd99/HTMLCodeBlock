@@ -73,7 +73,7 @@ class App extends React.Component {
       tag: "rgba(255,184,28,1)",
       "template-tag": "rgba(255,184,28,1)",
       "template-variable": "rgba(255,184,28,1)",
-      "text-color": "rgba(208,211,211,1)c",
+      "text-color": "rgba(208,211,211,1)",
       title: "rgba(255,184,28,1)",
       type: "rgba(255,184,28,1)",
       variable: "rgba(255,184,28,1)"
