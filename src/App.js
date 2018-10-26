@@ -4,7 +4,6 @@ import CodeBlock from "./components/CodeBlock";
 import CssCodeDisplay from "./components/CssCodeDisplay";
 import HtmlCodeDisplay from "./components/HtmlCodeDisplay";
 import BlockOptions from "./components/BlockOptions";
-import HighlightGlobalStyles from "./components/HighlightGlobalStyles";
 import Key from "./components/Key";
 import ViewSwitcher from "./components/ViewSwitcher";
 
@@ -111,10 +110,13 @@ class App extends React.Component {
       case "output":
         return (
           <ParentDiv>
-            <HighlightGlobalStyles options={options} />
             <h1>Custom Code Block</h1>
-            <ViewSwitcher view={view} changeView={this.changeView} />
-            <HighlightGlobalStyles options={options} />
+            <ViewSwitcher
+              view={view}
+              changeView={this.changeView}
+              options={options}
+            />
+
             <CodeBlock>{code}</CodeBlock>
             <CssCodeDisplay options={options} />
             <HtmlCodeDisplay code={code} />
@@ -123,9 +125,12 @@ class App extends React.Component {
       case "input":
         return (
           <React.Fragment>
-            <HighlightGlobalStyles options={options} />
             <h1>Custom Code Block</h1>
-            <ViewSwitcher view={view} changeView={this.changeView} />
+            <ViewSwitcher
+              view={view}
+              changeView={this.changeView}
+              options={options}
+            />
             <BlockOptions
               options={options}
               optionChange={this.optionChange}
@@ -138,7 +143,11 @@ class App extends React.Component {
         return (
           <React.Fragment>
             <h1>Custom Code Block</h1>
-            <ViewSwitcher view={view} changeView={this.changeView} />
+            <ViewSwitcher
+              view={view}
+              changeView={this.changeView}
+              options={options}
+            />
             <Key />
           </React.Fragment>
         );

@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import HighlightGlobalStyles from "./HighlightGlobalStyles";
 
 const Views = styled.div`
   display: flex;
@@ -19,18 +20,21 @@ cursor: pointer;
   }: 
 `;
 
-const ViewSwitcher = ({ view, changeView }) => (
-  <Views>
-    <Link active={view === "output"} onClick={() => changeView("output")}>
-      OUTPUT
-    </Link>
-    <Link active={view === "input"} onClick={() => changeView("input")}>
-      INPUT
-    </Link>
-    <Link active={view === "key"} onClick={() => changeView("key")}>
-      KEY
-    </Link>
-  </Views>
+const ViewSwitcher = ({ view, changeView, options }) => (
+  <React.Fragment>
+    <HighlightGlobalStyles options={options} />
+    <Views>
+      <Link active={view === "output"} onClick={() => changeView("output")}>
+        OUTPUT
+      </Link>
+      <Link active={view === "input"} onClick={() => changeView("input")}>
+        INPUT
+      </Link>
+      <Link active={view === "key"} onClick={() => changeView("key")}>
+        KEY
+      </Link>
+    </Views>
+  </React.Fragment>
 );
 
 export default ViewSwitcher;
