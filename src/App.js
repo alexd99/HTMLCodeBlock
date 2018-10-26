@@ -6,6 +6,7 @@ import HtmlCodeDisplay from "./components/HtmlCodeDisplay";
 import BlockOptions from "./components/BlockOptions";
 import Key from "./components/Key";
 import ViewSwitcher from "./components/ViewSwitcher";
+import debounce from "@tuxsudo/debounce";
 
 const ParentDiv = styled.div`
   width: 50%;
@@ -33,49 +34,49 @@ class App extends React.Component {
       <!-- here goes the rest of the page -->
     </body>`,
     options: {
-      addition: "#ffb81c",
-      attr: "#ffb81c",
-      attribute: "#ffb81c",
-      background: "#3a3d40",
-      built_in: "#ffb81c",
-      "builtin-name": "#ffb81c",
-      bullet: "#7de3f4",
-      class: "#ffb81c",
-      code: "#bed21e",
-      comment: "#bdc0c0",
-      deletion: "#bdc0c0",
-      doctag: "#bdc0c0",
-      emphasis: "#a9adad",
-      formula: "#a9adad",
-      function: "#ffb81c",
-      keyword: "#ffb81c",
-      link: "#7de3f4",
-      literal: "#7de3f4",
-      meta: "#bdc0c0",
-      "meta-keyword": "#bdc0c0",
-      "meta-string": "#bdc0c0",
-      name: "#ffb81c",
-      number: "#7de3f4",
-      params: "#878a8c",
-      quote: "#7de3f4",
-      regexp: "#7de3f4",
-      section: "#ffb81c",
-      "selector-attr": "#ffb81c",
-      "selector-class": "#bed21e",
-      "selector-id": "#ffb81c",
-      "selector-pseudo": "#ffb81c",
-      "selector-tag": "#ffb81c",
-      string: "#7de3f4",
-      strong: "#a9adad",
-      subst: "#ffb81c",
-      symbol: "#ffb81c",
-      tag: "#ffb81c",
-      "template-tag": "#ffb81c",
-      "template-variable": "#ffb81c",
-      "text-color": "#d0d3d3",
-      title: "#ffb81c",
-      type: "#ffb81c",
-      variable: "#ffb81c"
+      addition: "rgba(255,184,28,1)",
+      attr: "rgba(255,184,28,1)",
+      attribute: "rgba(255,184,28,1)",
+      background: "rgba(58,61,64,1)",
+      built_in: "rgba(255,184,28,1)",
+      "builtin-name": "rgba(255,184,28,1)",
+      bullet: "rgba(125,227,244,1)",
+      class: "rgba(255,184,28,1)",
+      code: "rgba(190,210,30,1)",
+      comment: "rgba(189,192,192,1)",
+      deletion: "rgba(189,192,192,1)",
+      doctag: "rgba(189,192,192,1)",
+      emphasis: "rgba(169,173,173,1)",
+      formula: "rgba(169,173,173,1)",
+      function: "rgba(255,184,28,1)",
+      keyword: "rgba(255,184,28,1)",
+      link: "rgba(125,227,244,1)",
+      literal: "rgba(125,227,244,1)",
+      meta: "rgba(189,192,192,1)",
+      "meta-keyword": "rgba(189,192,192,1)",
+      "meta-string": "rgba(189,192,192,1)",
+      name: "rgba(255,184,28,1)",
+      number: "rgba(125,227,244,1)",
+      params: "rgba(135,138,140,1)",
+      quote: "rgba(125,227,244,1)",
+      regexp: "rgba(125,227,244,1)",
+      section: "rgba(255,184,28,1)",
+      "selector-attr": "rgba(255,184,28,1)",
+      "selector-class": "rgba(190,210,30,1)",
+      "selector-id": "rgba(255,184,28,1)",
+      "selector-pseudo": "rgba(255,184,28,1)",
+      "selector-tag": "rgba(255,184,28,1)",
+      string: "rgba(125,227,244,1)",
+      strong: "rgba(169,173,173,1)",
+      subst: "rgba(255,184,28,1)",
+      symbol: "rgba(255,184,28,1)",
+      tag: "rgba(255,184,28,1)",
+      "template-tag": "rgba(255,184,28,1)",
+      "template-variable": "rgba(255,184,28,1)",
+      "text-color": "rgba(208,211,211,1)c",
+      title: "rgba(255,184,28,1)",
+      type: "rgba(255,184,28,1)",
+      variable: "rgba(255,184,28,1)"
     }
   };
 
@@ -86,7 +87,11 @@ class App extends React.Component {
   };
 
   optionChange = (color, event, option) => {
-    const value = color.hex;
+    console.log(color);
+
+    const { r, g, b, a } = color.rgb;
+
+    const value = `rgba(${r},${g},${b},${a})`;
 
     this.setState(prevstate => ({
       options: {
@@ -133,7 +138,11 @@ class App extends React.Component {
             />
             <BlockOptions
               options={options}
-              optionChange={this.optionChange}
+              optionChange={debounce(
+                (color, event, optionChange) =>
+                  this.optionChange(color, event, optionChange),
+                75
+              )}
               code={code}
               codeChange={this.codeChange}
             />

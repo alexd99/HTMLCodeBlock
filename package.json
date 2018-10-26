@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://alexd99.github.io/codeBlockGenerator/",
   "dependencies": {
+    "@tuxsudo/debounce": "^1.0.1",
     "highlight.js": "^9.13.1",
     "react": "^16.6.0",
     "react-color": "^2.14.1",
