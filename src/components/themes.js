@@ -97,6 +97,14 @@ const themes = {
   }
 };
 
-export const themesArray = ["custom", "default"];
+const getThemes = () => {
+  let returnArray = [];
+  for (let theme in themes) {
+    const key = theme;
+    returnArray.push(key);
+  }
+  return returnArray;
+};
 
 export default themes;
+export const themesArray = getThemes();
